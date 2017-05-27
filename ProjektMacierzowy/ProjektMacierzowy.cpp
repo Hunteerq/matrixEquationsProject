@@ -45,7 +45,11 @@ int main()
 		fscanf(fd, "%LF", &matrixB[i]);
 		printf("%LF\n", matrixB[i]);
 	}
+
+
+	//Z£E:
 	//rozwiazywanie ukladu równañ
+	/*
 	for (int i = n - 1; i > 0; i--)
 	{
 		for (int j = 0; j < n-1; j++)
@@ -81,7 +85,7 @@ int main()
 	{
 		printf("x%d = %LF \n", i, matrixX[i]);
 	}
-
+	*/
 	getchar();
     return 0;
 }
