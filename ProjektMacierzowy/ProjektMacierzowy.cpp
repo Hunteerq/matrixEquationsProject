@@ -45,7 +45,29 @@ int main()
 		fscanf(fd, "%LF", &matrixB[i]);
 		printf("%LF\n", matrixB[i]);
 	}
+	for (int i = n-1; i >= 0; i--)
+	{
+		for (int j = i; j >= 0; j--)
+		{
+			matrixB[j] = matrixB[j] / matrixA[j][i];
 
+			for (int k = 0; k <= i; k++)
+			{
+				matrixA[j][k] = matrixA[j][k] / matrixA[j][i];
+			}
+		
+		}
+		for (int x = i; x > 0; x--)
+		{
+			for (int k = 0; k <= i; k++)
+			{
+				matrixA[x - 1][k] = matrixA[x - 1][k] - matrixA[i][k];
+
+			}
+			matrixB[x - 1] = matrixB[x - 1] - matrixB[i];
+		}
+
+	}
 
 	//Z£E:
 	//rozwiazywanie ukladu równañ
@@ -68,8 +90,9 @@ int main()
 	matrixB[0] *= (1.0 / matrixA[0][0]);
 	matrixA[0][0] = 1.0;
 	matrixX[0] = matrixB[0];
-
+	*/
 	//obliczanie kolejnych x-ów
+	/*
 	for (int i = 1; i < n; i++)
 	{
 		for (int j = 0; j < i; j++)
@@ -86,6 +109,7 @@ int main()
 		printf("x%d = %LF \n", i, matrixX[i]);
 	}
 	*/
+	
 	getchar();
     return 0;
 }
