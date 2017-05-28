@@ -22,6 +22,10 @@ int main()
 	if (!(matrixB = malloc(sizeof(double)*n))) exit(4);
 	if (!(matrixX = malloc(sizeof(double)*n))) exit(4);
 
+	for (int i = 0; i < n; i++)
+	{
+		matrixX[i] = 0;
+	}
 	//macierz A
 	for (int i = 0; i < n; i++)
 	{
@@ -68,7 +72,29 @@ int main()
 		}
 
 	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%lf  ", matrixA[i][j]);
+		}
+		printf("%lf\n", matrixB[i]);
+	}
+	matrixX[0] = matrixB[0];
+	for (int i = 1; i < n; i++)
+	{
+		for (int j = 0; j<i; j++)
+		{
+			matrixX[i] = matrixX[i] - matrixA[i][j] * matrixX[j];
+		}
+		matrixX[i] += matrixB[i];
+		matrixX[i] = matrixX[i] / matrixA[i][i];
+	}
 
+	for (int i = 0; i < n; i++)
+	{
+		printf("x%d = %lf\n", i, matrixX[i]);
+	}
 	//Z£E:
 	//rozwiazywanie ukladu równañ
 	/*
